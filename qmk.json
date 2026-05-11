@@ -1,0 +1,10 @@
+{
+    "userspace_version": "1.0",
+    "build_targets": [
+        ["preonic/rev3", "daemoncat"],
+        ["kprepublic/bm40hsrgb/rev1", "daemoncat"],
+        ["keyboardio/atreus", "daemoncat36"],
+        ["keyboardio/atreus", "daemoncat36v2"],
+        ["keyboardio/atreus", "daemoncat44"]
+    ]
+}
