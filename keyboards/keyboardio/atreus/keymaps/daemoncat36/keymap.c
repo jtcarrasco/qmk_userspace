@@ -21,9 +21,9 @@ enum layer_names {
 #define MT_NUM  LT(_NUM, KC_GRV)
 
 // macros keys
-#define SC_CUT              LGUI(KC_X)
-#define SC_COPY             LGUI(KC_C)
-#define SC_PSTE             LGUI(KC_V)
+#define SC_CUT              LCTL(LSFT(KC_X))
+#define SC_COPY             LCTL(LSFT(KC_C))
+#define SC_PSTE             LCTL(LSFT(KC_V))
 #define SC_SAVE             LGUI(KC_S)
 #define SC_RFH              LGUI(KC_R)
 #define SC_AC               LGUI(KC_0)
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NUM] = LAYOUT(
     KC_TILD,  KC_1,     KC_2,  KC_3,     KC_MINS,                      KC_DEL,   SC_AC,    SC_OUT,   SC_IN,     KC_BSPC,
-    KC_CAPS,  KC_4,     KC_5,  KC_6,     KC_PLUS,                      KC_UP,    KC_LEFT,  KC_DOWN,  KC_RIGHT,  SC_RFH,
+    KC_CAPS,  KC_4,     KC_5,  KC_6,     KC_PLUS,                      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  SC_RFH,
     KC_LSFT,  KC_7,     KC_8,  KC_9,     KC_EQL,   XXXXXXX,  XXXXXXX,  SC_SAVE,  SC_CUT,   SC_COPY,  SC_PSTE,   KC_RSFT,
     XXXXXXX,  XXXXXXX,  KC_0,  _______,  _______,  XXXXXXX,  XXXXXXX,  KC_TAB,   _______,  _______,  XXXXXXX,   XXXXXXX
   ),
