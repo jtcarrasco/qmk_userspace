@@ -14,6 +14,7 @@ enum layer_names {
 #define MT_X    LCTL_T(KC_X)
 #define MT_RP   RCTL_T(KC_DOT)
 #define MT_RS   RSFT_T(KC_SLSH)
+#define MT_SC   RGUI_T(KC_SCLN)
 #define MT_ESC  LALT_T(KC_ESC)
 #define MT_ENT  LT(_MOU, KC_ENT)
 #define MT_FUN  LT(_FUN, KC_GRV)
@@ -37,7 +38,7 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWTY] = LAYOUT(
     KC_Q,     KC_W,      KC_E,    KC_R,      KC_T,                         KC_Y,    KC_U,      KC_I,     KC_O,     KC_P,
-    KC_A,     KC_S,      KC_D,    KC_F,      KC_G,                         KC_H,    KC_J,      KC_K,     KC_L,     KC_SCLN,
+    KC_A,     KC_S,      KC_D,    KC_F,      KC_G,                         KC_H,    KC_J,      KC_K,     KC_L,     MT_SC,
     MT_Z,     MT_X,      KC_C,    KC_V,      KC_B,     XXXXXXX,  XXXXXXX,  KC_N,    KC_M,      KC_COMM,  MT_RP,    MT_RS,
     XXXXXXX,  XXXXXXX,   MT_ESC,  MT_FUN,    KC_TAB,   XXXXXXX,  SC_RC,    KC_SPC,  MT_NUM,    MT_ENT,   XXXXXXX,  XXXXXXX
   ),
@@ -48,15 +49,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,  XXXXXXX,  KC_0,  _______,  _______,  XXXXXXX,  XXXXXXX,  KC_TAB,   _______,  _______,  XXXXXXX,   XXXXXXX
   ),
   [_FUN] = LAYOUT(
-    _______,  KC_F1,    KC_F2,    KC_F3,    KC_F10,                       _______,  _______,  _______,  _______,  _______,
+    _______,  KC_F1,    KC_F2,    KC_F3,    KC_F10,                       _______,  _______,  _______,  _______,  QK_BOOT,
     KC_CAPS,  KC_F4,    KC_F5,    KC_F6,    KC_F11,                       _______,  _______,  _______,  _______,  _______,
     KC_LSFT,  KC_F7,    KC_F8,    KC_F9,    KC_F12,   XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  _______,  _______,
     XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX
   ),
   [_MOU] = LAYOUT(
-    _______,  _______,  _______,  _______,  _______,                        KC_BTN1,  KC_PGDN,  KC_PGUP,  KC_BTN2,  KC_HOME,
-    _______,  _______,  _______,  _______,  _______,                        KC_MS_L,  KC_MS_D,  KC_MS_U,  KC_MS_R,  KC_END,
-    _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,    KC_WH_L,  KC_WH_D,  KC_WH_U,  KC_WH_R,  _______,
+    _______,  _______,  _______,  _______,  _______,                        MS_BTN1,  KC_PGDN,  KC_PGUP,  MS_BTN2,  KC_HOME,
+    _______,  _______,  _______,  _______,  _______,                        MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  KC_END,
+    _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,    MS_WHLL,  MS_WHLD,  MS_WHLU,  MS_WHLR,  _______,
     XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,    _______,  _______,  _______,  XXXXXXX,  XXXXXXX
   )
 };
@@ -74,8 +75,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 const uint16_t PROGMEM dl_combo[]   = {KC_D,    KC_L,    COMBO_END};
-const uint16_t PROGMEM scsl_combo[] = {KC_SCLN, MT_RS,   COMBO_END};
-const uint16_t PROGMEM psc_combo[]  = {KC_P,    KC_SCLN, COMBO_END};
+const uint16_t PROGMEM scsl_combo[] = {MT_SC,   MT_RS,   COMBO_END};
+const uint16_t PROGMEM psc_combo[]  = {KC_P,    MT_SC,   COMBO_END};
 const uint16_t PROGMEM ol_combo[]   = {KC_O,    KC_L,    COMBO_END};
 const uint16_t PROGMEM ldt_combo[]  = {KC_L,    MT_RP,   COMBO_END};
 const uint16_t PROGMEM ik_combo[]   = {KC_I,    KC_K,    COMBO_END};
@@ -90,6 +91,7 @@ const uint16_t PROGMEM rf_combo[]   = {KC_R,    KC_F,    COMBO_END};
 const uint16_t PROGMEM fv_combo[]   = {KC_F,    KC_V,    COMBO_END};
 const uint16_t PROGMEM ed_combo[]   = {KC_E,    KC_D,    COMBO_END};
 const uint16_t PROGMEM dc_combo[]   = {KC_D,    KC_C,    COMBO_END};
+const uint16_t PROGMEM sb_combo[]   = {KC_S,    KC_B,    COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(dl_combo,   KC_DEL),
@@ -109,4 +111,5 @@ combo_t key_combos[] = {
     COMBO(fv_combo,   KC_RCBR),
     COMBO(ed_combo,   KC_LPRN),
     COMBO(dc_combo,   KC_RPRN),
+    COMBO(sb_combo,   KC_BSPC),
 };
