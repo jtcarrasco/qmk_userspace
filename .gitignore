@@ -3,3 +3,7 @@
 *.elf
 *.map
 .build/
+
+# Claude Code project config: local only, never published
+.claude/
+CLAUDE.md
