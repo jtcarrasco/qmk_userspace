@@ -5,6 +5,7 @@
         ["kprepublic/bm40hsrgb/rev1", "daemoncat"],
         ["keyboardio/atreus", "daemoncat36"],
         ["keyboardio/atreus", "daemoncat36v2"],
+        ["keyboardio/atreus", "daemoncat40"],
         ["keyboardio/atreus", "daemoncat44"],
         ["preonic/rev3", "daemoncat_default"]
     ]
