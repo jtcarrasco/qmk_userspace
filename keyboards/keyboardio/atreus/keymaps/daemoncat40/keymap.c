@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX
   ),
   [_MOU] = LAYOUT(
-    _______,  _______,  _______,  _______,  _______,                        MS_BTN1,  KC_PGDN,  KC_PGUP,  MS_BTN2,  KC_HOME,
+    KC_PSCR,  _______,  _______,  _______,  _______,                        MS_BTN1,  KC_PGDN,  KC_PGUP,  MS_BTN2,  KC_HOME,
     _______,  _______,  _______,  _______,  _______,                        MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  KC_END,
     _______,  _______,  _______,  _______,  _______,  _______,  _______,    MS_WHLL,  MS_WHLD,  MS_WHLU,  MS_WHLR,  _______,
     XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  XXXXXXX,  XXXXXXX
