@@ -17,13 +17,13 @@ enum layer_names {
 #define MT_SC   RGUI_T(KC_SCLN)
 #define MT_ESC  LALT_T(KC_ESC)
 #define MT_ENT  LT(_MOU, KC_ENT)
-#define MT_FUN  LT(_FUN, KC_GRV)
-#define MT_NUM  LT(_NUM, KC_GRV)
+#define MT_FUN  MO(_FUN)
+#define MT_NUM  MO(_NUM)
 
 // macros keys
-#define SC_CUT              LCTL(LSFT(KC_X))
-#define SC_COPY             LCTL(LSFT(KC_C))
-#define SC_PSTE             LCTL(LSFT(KC_V))
+#define SC_CUT              LGUI(KC_X)
+#define SC_COPY             LGUI(KC_C)
+#define SC_PSTE             LGUI(KC_V)
 #define SC_SAVE             LGUI(KC_S)
 #define SC_RFH              LGUI(KC_R)
 #define SC_AC               LGUI(KC_0)
@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,     KC_W,      KC_E,    KC_R,      KC_T,                         KC_Y,    KC_U,      KC_I,     KC_O,     KC_P,
     KC_A,     KC_S,      KC_D,    KC_F,      KC_G,                         KC_H,    KC_J,      KC_K,     KC_L,     MT_SC,
     MT_Z,     MT_X,      KC_C,    KC_V,      KC_B,     KC_HOME,  KC_PGUP,  KC_N,    KC_M,      KC_COMM,  MT_RP,    MT_RS,
-    XXXXXXX,  XXXXXXX,   MT_ESC,  MT_FUN,    KC_TAB,   KC_END,   KC_PGDN,    KC_SPC,  MT_NUM,    MT_ENT,   XXXXXXX,  XXXXXXX
+    XXXXXXX,  XXXXXXX,   MT_ESC,  MT_FUN,    KC_TAB,   KC_END,   KC_PGDN,  KC_SPC,  MT_NUM,    MT_ENT,   XXXXXXX,  XXXXXXX
   ),
   [_NUM] = LAYOUT(
     KC_TILD,  KC_1,     KC_2,  KC_3,     KC_MINS,                      KC_DEL,   SC_AC,    SC_OUT,   SC_IN,     KC_BSPC,
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,  XXXXXXX,  KC_0,  _______,  _______,  _______,  _______,  KC_TAB,   _______,  _______,  XXXXXXX,   XXXXXXX
   ),
   [_FUN] = LAYOUT(
-    _______,  KC_F1,    KC_F2,    KC_F3,    KC_F10,                       _______,  _______,  _______,  _______,  QK_BOOT,
+    KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F10,                       _______,  _______,  _______,  _______,  QK_BOOT,
     KC_CAPS,  KC_F4,    KC_F5,    KC_F6,    KC_F11,                       _______,  _______,  _______,  _______,  _______,
     KC_LSFT,  KC_F7,    KC_F8,    KC_F9,    KC_F12,   _______,  _______,  _______,  _______,  _______,  _______,  _______,
     XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX
@@ -61,18 +61,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,  XXXXXXX,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  XXXXXXX,  XXXXXXX
   )
 };
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MT_FUN:
-            if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_TILD);
-                return false;
-            }
-            break;
-    }
-    return true;
-}
 
 const uint16_t PROGMEM dl_combo[]   = {KC_D,    KC_L,    COMBO_END};
 const uint16_t PROGMEM scsl_combo[] = {MT_SC,   MT_RS,   COMBO_END};
